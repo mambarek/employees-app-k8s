@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: employees-webapp-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    component: employees-webapp
+  ports:
+    - port: 80
+      protocol: TCP

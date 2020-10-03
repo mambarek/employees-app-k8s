@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: employees-webapp-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            component: employees-webapp
+    template:
+        metadata:
+            labels:
+                component: employees-webapp
+        spec:
+            containers:
+                - name: employees-webapp
+                  image: mmbarek/employees-webapp
+                  ports:
+                    - containerPort: 80
+                  env:
+                    - name: PROJECTS_API_URL
+                      value: http://172.17.52.21/services/pms                   
