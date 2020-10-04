@@ -19,4 +19,6 @@ spec:
                     - containerPort: 80
                   env:
                     - name: PROJECTS_API_URL
+                      # The request to REST API is coming from Browser
+                      # so we can't use an internal URL. To be upated if the minikube IP changes
                       value: http://172.17.52.21/services/pms                   
